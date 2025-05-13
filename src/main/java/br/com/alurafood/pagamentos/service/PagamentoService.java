@@ -44,7 +44,6 @@ public class PagamentoService {
         pagamentoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
         Pagamento pagamento = modelMapper.map(dto, Pagamento.class);
         pagamento.setId(id);
-
         pagamentoRepository.save(pagamento);
         return modelMapper.map(pagamento, PagamentoDto.class);
     }
